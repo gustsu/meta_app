@@ -9,8 +9,14 @@ $(function(){
 	  element.style.overflow = 'hidden';
 	}
 
-	$('.meditate-button').on('click', function(){
+	$('#options-button').on('click', function(){
+		$(this).addClass('spin');
+		setTimeout(function(){
+			$('#options-button').removeClass('spin');
+		}, 250);
+	});
 
+	$('.meditate-button').on('click', function(){
 		$('#main-screen').hide();
 		$('#prep span:nth-child(1)').fadeIn(500);
 		$('#prep span:nth-child(1)').delay(500).fadeOut(500);
@@ -21,8 +27,8 @@ $(function(){
 		setTimeout(function(){
 			$('#meditate-screen').show();
 			var display = document.querySelector('#time');
-		    var timer = new CountDownTimer(500);
-		    var timeObj = CountDownTimer.parse(500);
+		    var timer = new CountDownTimer(300);
+		    var timeObj = CountDownTimer.parse(300);
 		    timer.start();
 		    format(timeObj.minutes, timeObj.seconds);
 		    timer.onTick(format);
