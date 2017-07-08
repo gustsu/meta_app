@@ -1,2 +1,145 @@
-h1{color:black}h2{color:black}h3{color:black}
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  font-family: 'Rubik', sans-serif; }
+
+body {
+  background: linear-gradient(200deg, #00C4CC, #6E44BD);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300; }
+
+h1 {
+  text-align: center;
+  margin-top: 3em;
+  font-weight: 300;
+  font-size: 3em; }
+
+nav {
+  text-align: center;
+  background: #fff;
+  position: relative;
+  z-index: 100; }
+  nav .logo {
+    display: inline-block;
+    width: 50px;
+    margin-top: 1em;
+    margin-bottom: 1em; }
+
+.clock {
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: calc(50% - 25px); }
+
+#options-button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: .1em;
+  font-size: 38px;
+  color: #6E44BD;
+  cursor: pointer;
+  margin-top: 18px;
+  margin-right: 18px; }
+
+.meditate-button {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: 5%;
+  width: 90%;
+  height: 80px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  background: none;
+  font-size: 28px;
+  letter-spacing: 2px;
+  box-shadow: 0px 3px 12px rgba(43, 43, 43, 0.39);
+  /*//box-shadow: 0 0 1000px white;*/ }
+
+.meditate-button:focus {
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+.meditate-button:active {
+  box-shadow: none;
+  outline: none;
+  appearance: none; }
+
+.section {
+  display: none; }
+
+#main-screen {
+  display: block; }
+
+#prep span {
+  display: none;
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: calc(50% - 25px); }
+
+button {
+  position: relative;
+  background: #000;
+  border: 0;
+  padding: 14px 42px;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: 0.2em;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease; }
+
+button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shine 5.6s infinite ease; }
+
+button:active {
+  transform: translateY(1px); }
+
+.cntr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+@-moz-keyframes shine {
+  22%,100% {
+    left: 200%; } }
+@-webkit-keyframes shine {
+  22%,100% {
+    left: 200%; } }
+@-o-keyframes shine {
+  22%,100% {
+    left: 200%; } }
+@keyframes shine {
+  22%,100% {
+    left: 200%; } }
+
 /*# sourceMappingURL=styles.min.css.map */
