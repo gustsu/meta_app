@@ -1,6 +1,6 @@
 $(function(){
 	var element = document.documentElement;
-	  
+	var medi_time = 300;
 	if(element.scrollHeight > element.clientHeight) {
 	  // Overflow detected; force scroll bar
 	  element.style.overflow = 'scrollbar';
@@ -10,14 +10,47 @@ $(function(){
 	}
 
 	$('#options-button').on('click', function(){
-		$(this).addClass('spin');
-		setTimeout(function(){
-			$('#options-button').removeClass('spin');
-		}, 250);
+		$('#options-screen').addClass('slide-left');
+	});
+
+	$('#back-to-medi-screen').on('click', function(){
+		$('#options-screen').removeClass('slide-left');
+	});
+
+	$('.option').on('click', function(){
+		$(this).find('small').slideToggle();
+		$(this).find('.full').slideToggle();
 	});
 
 	$('.meditate-button').on('click', function(){
 		$('#main-screen').hide();
+		$('#select-time').fadeIn(500);
+	});
+
+	$('#select-time .five').on('click', function(){
+		$('#select-time').hide();
+		medi_time = 300; //in seconds
+		meditate(medi_time);
+	});
+
+	$('#select-time .ten').on('click', function(){
+		$('#select-time').hide();
+		medi_time = 600; //in seconds
+		meditate(medi_time);
+	});
+
+	$('#select-time .fifteen').on('click', function(){
+		$('#select-time').hide();
+		medi_time = 900; //in seconds
+		meditate(medi_time);
+	});
+
+	$('#done-button').on('click', function(){
+		$('#done-screen').hide();
+		$('#main-screen').fadeIn(500);
+	});
+
+	function meditate() {
 		$('#prep span:nth-child(1)').fadeIn(500);
 		$('#prep span:nth-child(1)').delay(500).fadeOut(500);
 		$('#prep span:nth-child(2)').delay(1000).fadeIn(500);
@@ -27,8 +60,8 @@ $(function(){
 		setTimeout(function(){
 			$('#meditate-screen').show();
 			var display = document.querySelector('#time');
-		    var timer = new CountDownTimer(300);
-		    var timeObj = CountDownTimer.parse(300);
+		    var timer = new CountDownTimer(medi_time);
+		    var timeObj = CountDownTimer.parse(medi_time);
 		    timer.start();
 		    format(timeObj.minutes, timeObj.seconds);
 		    timer.onTick(format);
@@ -36,6 +69,8 @@ $(function(){
 				if (timer.running === false) {
 					setTimeout(1000);
 					console.log('done with this screen please!');
+					$('#meditate-screen').hide();
+					$('#done-screen').fadeIn(500);
 				}
 			});
 			function format(minutes, seconds) {
@@ -44,10 +79,9 @@ $(function(){
 			    display.textContent = minutes + ':' + seconds;
 			}
 		}, 3500);
-	});
+	}
 
 });
-
 
 
 
